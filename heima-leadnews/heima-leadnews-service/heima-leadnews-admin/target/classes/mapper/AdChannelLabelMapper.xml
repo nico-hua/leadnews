@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heima.admin.mapper.AdChannelLabelMapper">
+
+    <!-- 联表查询 -->
+    <select id="findAllAdChannelVo" resultType="com.heima.model.admin.vos.AdChannelVo">
+        SELECT
+            acl.id,
+            acl.channel_id,
+            acl.label_id,
+            acl.ord,
+            al.name
+        FROM
+            ad_channel_label acl
+                JOIN
+            ad_label al
+            ON
+                acl.label_id = al.id
+    </select>
+
+</mapper>
